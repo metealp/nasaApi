@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>NASA API CASE</title>
+	<!-- <script type="text/javascript" src="assets/js/lib/jquery-3.5.0.min.js"></script> -->
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+	<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css">
+	<link rel="stylesheet" href="/stylesheets/search.css">
+</head>
+<body>
+	<nav class="navbar navbar-expand-lg navbar-light bg-dark white-text">
+		<div class="container">
+			<a class="navbar-brand text-light" href="/"><i class="fas fa-user-astronaut"> </i>NASA Image Lib</i></a>
+			<button class="navbar-toggler text-light" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+			
+			<div class="collapse navbar-collapse" id="navbarSupportedContent">
+				<ul class="navbar-nav mr-auto">
+					<li class="nav-item active">
+						<a class="nav-link text-light" href="/">Home <span class="sr-only">(current)</span></a>
+					</li>
+				</ul>
+				<form class="form-inline my-2 my-lg-0" action="/results" method="GET">
+					<input name="search" class="form-control mr-sm-2" type="search" placeholder="Search NASA Images" aria-label="Search">
+					<button class="btn btn-outline-info my-2 my-sm-0" type="submit">Search</button>
+				</form>
+			</div>
+		</div>
+	</nav>
+
+	<div class="row justify-content-center">
+		<div class="col-6">
+			<h1 class="text-center">Picture of Today</h1>
+			<div class="card">
+				<img src="<%= data.url %>" class="card-img-top" >
+				<div class="card-body">
+					<h5 class="card-title"><%= data.title %></h5>
+					<p id="hiddentext" class="card-text"><%= data.explanation %></p>
+			
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- <script src="/public/js/tpod.js"></script> -->
+
+</body>	
+</html>

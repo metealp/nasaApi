@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>NASA API CASE</title>
+	<script	src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+	<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css">
+	<link rel="stylesheet" href="/stylesheets/results.css">
+</head>
+<body>
+	<nav class="navbar navbar-expand-lg navbar-light bg-dark white-text">
+		<div class="container">
+			<a class="navbar-brand text-light" href="/"><i class="fas fa-user-astronaut"> </i>NASA Image Lib</i></a>
+			<button class="navbar-toggler text-light" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+			
+			<div class="collapse navbar-collapse" id="navbarSupportedContent">
+				<ul class="navbar-nav mr-auto">
+					<li class="nav-item active">
+						<a class="nav-link text-light" href="/">Home <span class="sr-only">(current)</span></a>
+					</li>
+				</ul>
+				<form class="form-inline my-2 my-lg-0" action="/results" method="GET">
+					<input class="form-control mr-sm-2" type="search" placeholder="Search NASA Images" aria-label="Search">
+					<button name="search" class="btn btn-outline-info my-2 my-sm-0" type="submit">Search</button>
+				</form>
+			</div>
+		</div>
+	</nav>
+
+	<h1>
+		Results Page
+	</h1>
+	<div id="grid" data-columns>
+		<% data.collection.items.forEach(function(asset){ %>
+			<div>			
+				<div class="card">
+					<img src="<%= asset["links"][0]["href"] %>" class="card-img-top" >
+					<div class="card-body">
+						<h5 class="card-title"><%= asset["data"][0]["title"] %></h5>
+						<p class="hiddentext" class="card-text"><%=asset["data"][0]["description"] %></p>
+						<p><em><%= asset["data"][0]["date_created"] %></em></p>
+					</div>
+				</div>
+			</div>
+		<%	}) %>
+	</div>
+	<script src="https://cdn.rawgit.com/rnmp/salvattore/master/dist/salvattore.js" type="text/javascript" charset="utf-8"></script>
+</body>	
+</html>

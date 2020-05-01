@@ -1,0 +1,48 @@
+.card {
+    height: auto;
+    margin: 5px;
+}
+
+#grid[data-columns]::before {
+	content: '3 .column.size-1of3';
+}
+
+@media screen and (max-width: 480px){
+	#grid[data-columns]::before {
+		content: '1 .column.size-1of1';
+	}
+}
+
+@media screen and (min-width: 481px) and (max-width: 768px) {
+	#grid[data-columns]::before {
+		content: '2 .column.size-1of2';
+	}
+}
+@media screen and (min-width: 769px) {
+	#grid[data-columns]::before {
+		content: '3 .column.size-1of3';
+	}
+}
+
+/* Again, you’re free to use and define the classes: */
+.column { float: left; }
+.size-1of1 { width: 100%; }
+.size-1of2 { width: 50%; }
+.size-1of3 { width: 33.333%; }
+
+.hiddentext {
+    height: 0;
+    text-align: center;
+    width: 100%;
+    transition: 0.4s ease;
+    opacity: 0;
+    font-size: xx-small;
+}
+
+.card:hover .hiddentext {
+    width: 100%;
+    height: auto; 
+    opacity: 1;
+    font-size: small;
+    text-align: justify;
+}

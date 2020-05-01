@@ -2,7 +2,7 @@
 const express = require("express");
 var app = express();
 var request = require("request");
-app.listen(3000, function(){
+app.listen(process.env.PORT, function(){
 	console.log("server started")
 })
 
